@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       					   http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"> 
+       					   
+
+	<!--PROTECTED REGION ID(R1240941845) ENABLED START-->
+		<!-- Insert here your Spring Beans -->
+	
+	<bean id="applicationContextManager" class="it.csi.util.beanlocatorfactory.SpringApplicationContextManager" />
+  
+	<bean id="certificatoreMgr" class="it.csi.sicee.siceesrv.business.facade.CertificatoreMgr">
+		<property name="siceeTCertificatoreDao">
+			<ref bean="SiceeTCertificatoreDao"/>
+		</property>
+		
+		<property name="siceeTAziendaDao">
+			<ref bean="SiceeTAziendaDao"/>
+		</property>
+		
+		<property name="siceeDTitoloDao">
+			<ref bean="SiceeDTitoloDao"/>
+		</property>
+		
+		<property name="optimizedCertificatoriDao">
+			<ref bean="OptimizedCertificatoriDao"/>
+		</property>
+		<property name="siceeTParametriDao">
+			<ref bean="SiceeTParametriDao"/>
+		</property>
+		
+		<property name="siceeTDocumentoDao">
+			<ref bean="SiceeTDocumentoDao"/>
+		</property>
+	</bean>
+	
+	<bean id="certificatoMgr" class="it.csi.sicee.siceesrv.business.facade.CertificatoMgr">
+
+
+		<property name="siceeTCertificatoDao">
+			<ref bean="SiceeTCertificatoDao"/>
+		</property>
+		
+		<property name="optimizedSiceeTCerticatoDao">
+			<ref bean="OptimizedSiceeTCerticatoDao"/>
+		</property>
+		
+		<property name="siceeTCertificatoreDao">
+			<ref bean="SiceeTCertificatoreDao"/>
+		</property>
+		
+		<property name="siceeTParametriDao">
+			<ref bean="SiceeTParametriDao"/>
+		</property>
+		
+		<property name="siceeDStatoCertDao">
+			<ref bean="SiceeDStatoCertDao"/>
+		</property>
+		
+		<property name="siceeDDatiIngressoDao">
+			<ref bean="SiceeDDatiIngressoDao"/>
+		</property>
+		
+		<property name="siceeDClasseEfficienzaDao">
+			<ref bean="SiceeDClasseEfficienzaDao"/>
+		</property>
+		
+		<property name="siceeDCombustibileDao">
+			<ref bean="SiceeDCombustibileDao"/>
+		</property>
+		
+		<property name="siceeDQualitaInvolucroDao">
+			<ref bean="SiceeDQualitaInvolucroDao"/>
+		</property>
+		
+		<property name="siceeDMotivoRilascioDao">
+			<ref bean="SiceeDMotivoRilascioDao"/>
+		</property>
+		
+		<property name="siceeDDestUsoDao">
+			<ref bean="SiceeDDestUsoDao"/>
+		</property>
+		
+		<property name="siceeDTipoImpiantoDao">
+			<ref bean="SiceeDTipoImpiantoDao"/>
+		</property>
+		
+		<property name="siceeDCarattEdificioDao">
+			<ref bean="SiceeDCarattEdificioDao"/>
+		</property>
+		
+		<property name="siceeDTipoEdificioDao">
+			<ref bean="SiceeDTipoEdificioDao"/>
+		</property>
+		
+		<property name="siceeTSostituzioneDao">
+			<ref bean="SiceeTSostituzioneDao"/>
+		</property>
+
+		<property name="siceeTClasseEnergeticaDao">
+			<ref bean="SiceeTClasseEnergeticaDao"/>
+		</property>
+
+		<property name="siceeTConsumiEdificioDao">
+			<ref bean="SiceeTConsumiEdificioDao"/>
+		</property>
+
+		<property name="siceeTDatiGeneraliDao">
+			<ref bean="SiceeTDatiGeneraliDao"/>
+		</property>
+
+		<property name="siceeTEnergiaSoprIngrDao">
+			<ref bean="SiceeTEnergiaSoprIngrDao"/>
+		</property>
+
+		<property name="siceeTFabbisognoDao">
+			<ref bean="SiceeTFabbisognoDao"/>
+		</property>
+
+		<property name="siceeTImpRiscaldamentoAcsDao">
+			<ref bean="SiceeTImpRiscaldamentoAcsDao"/>
+		</property>
+
+		<property name="siceeTRispettoNormativeDao">
+			<ref bean="SiceeTRispettoNormativeDao"/>
+		</property>
+
+		<property name="siceeTAltreInfoDao">
+			<ref bean="SiceeTAltreInfoDao"/>
+		</property>
+
+		<property name="siceeTDatiCatastSecDao">
+			<ref bean="SiceeTDatiCatastSecDao"/>
+		</property>
+
+		<property name="siceeTRuoliEdificioDao">
+			<ref bean="SiceeTRuoliEdificioDao"/>
+		</property>
+
+		<property name="siceeDPrioritaDao">
+			<ref bean="SiceeDPrioritaDao"/>
+		</property>
+
+		<property name="siceeTRaccomandazioniDao">
+			<ref bean="SiceeTRaccomandazioniDao"/>
+		</property>
+
+		<property name="siceeDClasseEnergeticaDao">
+			<ref bean="SiceeDClasseEnergeticaDao"/>
+		</property>
+
+		<property name="siceeDNormativaDao">
+			<ref bean="SiceeDNormativaDao"/>
+		</property>
+
+		<property name="siceeTDatiEner2015Dao">
+			<ref bean="SiceeTDatiEner2015Dao"/>
+		</property>
+
+		<property name="siceeTQtaConsumi2015Dao">
+			<ref bean="SiceeTQtaConsumi2015Dao"/>
+		</property>
+
+		<property name="siceeTRaccomand2015Dao">
+			<ref bean="SiceeTRaccomand2015Dao"/>
+		</property>
+
+		<property name="siceeDOggettoApe2015Dao">
+			<ref bean="SiceeDOggettoApe2015Dao"/>
+		</property>
+
+		<property name="siceeDRiqEner2015Dao">
+			<ref bean="SiceeDRiqEner2015Dao"/>
+		</property>
+		
+		<property name="siceeDUnitaMisura2015Dao">
+			<ref bean="SiceeDUnitaMisura2015Dao"/>
+		</property>
+		
+		<property name="siceeRCombDener2015Dao">
+			<ref bean="SiceeRCombDener2015Dao"/>
+		</property>
+		
+		<property name="siceeTRifIndex2015Dao">
+			<ref bean="SiceeTRifIndex2015Dao"/>
+		</property>
+		
+		<property name="siceeDDestUso2015Dao">
+			<ref bean="SiceeDDestUso2015Dao"/>
+		</property>
+		
+		<property name="siceeDTipoRistrutt2015Dao">
+			<ref bean="SiceeDTipoRistrutt2015Dao"/>
+		</property>
+		
+		<property name="siceeDTipolCostrutt2015Dao">
+			<ref bean="SiceeDTipolCostrutt2015Dao"/>
+		</property>
+
+		<property name="siceeDTipolEdilizia2015Dao">
+			<ref bean="SiceeDTipolEdilizia2015Dao"/>
+		</property>
+		
+		<property name="siceeDProprietaEdif2015Dao">
+			<ref bean="SiceeDProprietaEdif2015Dao"/>
+		</property>
+
+		<property name="siceeDServEner2015Dao">
+			<ref bean="SiceeDServEner2015Dao"/>
+		</property>
+
+		<property name="siceeRCertifServener2015Dao">
+			<ref bean="SiceeRCertifServener2015Dao"/>
+		</property>
+		
+		<property name="siceeTDetImp2015Dao">
+			<ref bean="SiceeTDetImp2015Dao"/>
+		</property>
+
+		<property name="siceeTAziendaDao">
+			<ref bean="SiceeTAziendaDao"/>
+		</property>
+
+		<property name="siceeDIstruzioneDao">
+			<ref bean="SiceeDIstruzioneDao"/>
+		</property>
+		
+		<property name="utilMgr">
+			<ref bean="utilMgr"/>
+		</property>
+		
+		<property name="siceeDTipoImpianto2015Dao">
+			<ref bean="SiceeDTipoImpianto2015Dao"/>
+		</property>
+		
+		<property name="siceeDDichiarazioneDao">
+			<ref bean="SiceeDDichiarazioneDao"/>
+		</property>
+		<property name="siceeTFoto2015Dao">
+			<ref bean="SiceeTFoto2015Dao"/>
+		</property>
+		
+		<property name="siceeTActaDao">
+			<ref bean="SiceeTActaDao"/>
+		</property>
+		
+	</bean>
+	
+	<bean id="titoloMgr" class="it.csi.sicee.siceesrv.business.facade.TitoloMgr">
+		<!-- property name="siceeDTitoloDao">
+			<ref bean="SiceeDTitoloDao"/>
+		</property-->
+		<property name="siceeDIstruzioneDao">
+			<ref bean="SiceeDIstruzioneDao"/>
+		</property>
+	</bean>
+	
+	<bean id="userMgr" class="it.csi.sicee.siceesrv.business.facade.UserMgr">
+		<property name="siceeTNotaioDao">
+			<ref bean="SiceeTNotaioDao"/>
+		</property>
+		<property name="siceeRNotaioAceDao">
+			<ref bean="SiceeRNotaioAceDao"/>
+		</property>
+		
+	
+	</bean>
+	
+	<bean id="utilMgr" class="it.csi.sicee.siceesrv.business.facade.UtilMgr">
+		<property name="siceeTParametriDao">
+			<ref bean="SiceeTParametriDao"/>
+		</property>
+
+		<property name="siceeTParametriMdpDao">
+			<ref bean="SiceeTParametriMdpDao"/>
+		</property>
+
+		<property name="siceeDDestUsoDao">
+			<ref bean="SiceeDDestUsoDao"/>
+		</property>
+		<property name="siceeDMotivoRilascioDao">
+			<ref bean="SiceeDMotivoRilascioDao"/>
+		</property>
+		<property name="siceeDQualitaInvolucroDao">
+			<ref bean="SiceeDQualitaInvolucroDao"/>
+		</property>
+		<property name="siceeDTipoImpiantoDao">
+			<ref bean="SiceeDTipoImpiantoDao"/>
+		</property>
+		<property name="siceeDClasseEnergeticaDao">
+			<ref bean="SiceeDClasseEnergeticaDao"/>
+		</property>
+		<property name="siceeRDestClasseDao">
+			<ref bean="SiceeRDestClasseDao"/>
+		</property>
+		<property name="siceeDCombustibileDao">
+			<ref bean="SiceeDCombustibileDao"/>
+		</property>
+		<property name="siceeDMotivoSostDao">
+			<ref bean="SiceeDMotivoSostDao"/>
+		</property>
+		<property name="siceeLAccessoDao">
+			<ref bean="SiceeLAccessoDao"/>
+		</property>
+	</bean>
+		
+	<!--PROTECTED REGION END-->
+	
+	
+	
+	<bean id="siceesrvImpl" class="it.csi.sicee.siceesrv.business.siceesrv.SiceesrvImpl">			
+	<!--PROTECTED REGION ID(R666440596) ENABLED START-->
+			<!-- Insert here siceesrv bean properties (Dao, customBeans, etc...) -->
+	<!--PROTECTED REGION END-->
+	</bean>
+	
+	
+</beans>

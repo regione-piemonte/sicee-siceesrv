@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server>  
+  <mbean code="it.csi.sicee.siceesrv.business.siceesrv.spring.startup.LoadStartupService" name="it.csi.sicee.siceesrv.business.siceesrv.spring.startup:service=LoadStartup">
+    <attribute name="Message">Startup contesto spring</attribute>
+  </mbean>
+</server>

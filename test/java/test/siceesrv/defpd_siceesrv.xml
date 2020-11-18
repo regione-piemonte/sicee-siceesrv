@@ -1,0 +1,264 @@
+<porta-delegata name="siceesrv.siceesrv">
+  <services>
+  
+<service name="siceesrv" public-interface-class="it.csi.sicee.siceesrv.interfacecsi.siceesrv.SiceesrvSrv" top-version="1.12">
+      <operations>
+		<operation name="findElencoCertificatori" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="filtro" type="it.csi.sicee.siceesrv.dto.siceesrv.FiltroRicercaCertificatori" />
+          </param-list>
+          	<ret-val type="it.csi.sicee.siceesrv.dto.siceesrv.Certificatore[]"/>
+        </operation>
+		<operation name="findAce" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="filtro" type="it.csi.sicee.siceesrv.dto.siceesrv.FiltroRicercaAce" />
+          </param-list>
+          	<ret-val type="it.csi.sicee.siceesrv.dto.siceesrv.Ace"/>
+        </operation>
+		<operation name="findAceFiltro" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="filtro" type="it.csi.sicee.siceesrv.dto.siceesrv.FiltroRicercaAce" />
+			<param name="idCertificatore" type="java.lang.String" />
+			<param name="flgPregresso" type="java.lang.Boolean" />
+			<param name="flgSostituzione" type="java.lang.Boolean" />
+          </param-list>
+          	<ret-val type="it.csi.sicee.siceesrv.dto.siceesrv.Ace[]"/>
+        </operation>
+		<operation name="findCertificatore" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="matricola" type="java.lang.String" />
+          </param-list>
+          	<ret-val type="it.csi.sicee.siceesrv.dto.siceesrv.Certificatore"/>
+        </operation>
+		<operation name="elencoTitoli" type="synch-call" since="1.0.0">
+          <param-list>
+          </param-list>
+          	<ret-val type="it.csi.sicee.siceesrv.dto.siceesrv.Titolo[]"/>
+        </operation>
+		<operation name="findNotaio" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="email" type="java.lang.String" />
+          </param-list>
+          	<ret-val type="it.csi.sicee.siceesrv.dto.siceesrv.Notaio"/>
+        </operation>
+		<operation name="updateInvioLog" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="log" type="it.csi.sicee.siceesrv.dto.siceesrv.InvioLog" />
+          </param-list>
+          	<ret-val type="int"/>
+        </operation>
+		<operation name="getParametro" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="param" type="java.lang.String" />
+          </param-list>
+          	<ret-val type="java.lang.String"/>
+        </operation>
+		<operation name="isProductEnabled" type="synch-call" since="1.0.0">
+          <param-list>
+          </param-list>
+          	<ret-val type="boolean"/>
+        </operation>
+		<operation name="isUserEnabled" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="codiceFiscale" type="java.lang.String" />
+          </param-list>
+          	<ret-val type="boolean"/>
+        </operation>
+		<operation name="isServiceEnabled" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="nomeServizio" type="java.lang.String" />
+          </param-list>
+          	<ret-val type="boolean"/>
+        </operation>
+		<operation name="findAceSostitutivi" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="filtro" type="it.csi.sicee.siceesrv.dto.siceesrv.FiltroRicercaAce" />
+          </param-list>
+          	<ret-val type="it.csi.sicee.siceesrv.dto.siceesrv.Ace[]"/>
+        </operation>
+		<operation name="getStampaCertificato" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="numCertificatore" type="java.lang.String" />
+			<param name="progrCertificato" type="java.lang.String" />
+			<param name="annoCertificato" type="java.lang.String" />
+			<param name="scrittaSfondo" type="java.lang.String" />
+			<param name="foto" type="byte[]" />
+          </param-list>
+          	<ret-val type="byte[]"/>
+        </operation>
+		<operation name="findUidFotoAce" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="filtro" type="it.csi.sicee.siceesrv.dto.siceesrv.FiltroRicercaAce" />
+          </param-list>
+          	<ret-val type="java.lang.String"/>
+        </operation>
+		<operation name="getStampaRicevutaInvioAce" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="numCertificatore" type="java.lang.String" />
+			<param name="progrCertificato" type="java.lang.String" />
+			<param name="annoCertificato" type="java.lang.String" />
+          </param-list>
+          	<ret-val type="byte[]"/>
+        </operation>
+		<operation name="findAceFiltroCount" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="filtro" type="it.csi.sicee.siceesrv.dto.siceesrv.FiltroRicercaAce" />
+			<param name="idCertificatore" type="java.lang.String" />
+			<param name="flgPregresso" type="java.lang.Boolean" />
+			<param name="flgSostituzione" type="java.lang.Boolean" />
+          </param-list>
+          	<ret-val type="java.lang.Integer"/>
+        </operation>
+		<operation name="findAceFlgPregresso" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="filtro" type="it.csi.sicee.siceesrv.dto.siceesrv.FiltroRicercaAce" />
+			<param name="flgPregresso" type="java.lang.Boolean" />
+          </param-list>
+          	<ret-val type="it.csi.sicee.siceesrv.dto.siceesrv.Ace"/>
+        </operation>
+		<operation name="getDettaglioAce" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="numCertificatore" type="java.lang.String" />
+			<param name="progrCertificato" type="java.lang.String" />
+			<param name="annoCertificato" type="java.lang.String" />
+          </param-list>
+          	<ret-val type="it.csi.sicee.siceesrv.dto.siceesrv.LabelValue[]"/>
+        </operation>
+		<operation name="findAceMonitoraggio" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="idCertificatore" type="java.lang.String" />
+          </param-list>
+          	<ret-val type="it.csi.sicee.siceesrv.dto.siceesrv.Ace[]"/>
+        </operation>
+		<operation name="notificaRenditionDisponibile" type="synch-call" >
+          <param-list>
+			<param name="idRichiestaPrenotazione" type="java.lang.Double" />
+			<param name="documentRenditionId" type="java.lang.String" />
+          </param-list>
+          	<ret-val type="void"/>
+        </operation>
+		<operation name="findUidRifIndex" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="numCertificatore" type="java.lang.String" />
+			<param name="progrCertificato" type="java.lang.String" />
+			<param name="annoCertificato" type="java.lang.String" />
+			<param name="idTipoDoc" type="java.lang.Integer" />
+          </param-list>
+          	<ret-val type="java.lang.String"/>
+        </operation>
+		<operation name="getXmlStampaCertificato2015" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="idCertificatore" type="java.lang.String" />
+			<param name="progrCertificato" type="java.lang.String" />
+			<param name="annoCertificato" type="java.lang.String" />
+			<param name="fotoPrincipale" type="byte[]" />
+			<param name="idStatoAttestato" type="java.lang.Integer" />
+          </param-list>
+          	<ret-val type="byte[]"/>
+        </operation>
+		<operation name="getStampaCertificato2015" type="synch-call" since="">
+          <param-list>
+			<param name="idCertificatore" type="java.lang.String" />
+			<param name="progrCertificato" type="java.lang.String" />
+			<param name="annoCertificato" type="java.lang.String" />
+			<param name="fotoPrincipale" type="byte[]" />
+			<param name="idStatoAttestato" type="java.lang.Integer" />
+          </param-list>
+          	<ret-val type="byte[]"/>
+        </operation>
+		<operation name="findUidFotoPrincipaleApe" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="idCertificatore" type="java.lang.String" />
+			<param name="progrCertificato" type="java.lang.String" />
+			<param name="annoCertificato" type="java.lang.String" />
+          </param-list>
+          	<ret-val type="java.lang.String"/>
+        </operation>
+		<operation name="getXmlStampaTarghettaCertificato" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="idCertificatore" type="java.lang.String" />
+			<param name="progrCertificato" type="java.lang.String" />
+			<param name="annoCertificato" type="java.lang.String" />
+          </param-list>
+          	<ret-val type="byte[]"/>
+        </operation>
+		<operation name="getStampaTarghettaCertificato" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="idCertificatore" type="java.lang.String" />
+			<param name="progrCertificato" type="java.lang.String" />
+			<param name="annoCertificato" type="java.lang.String" />
+          </param-list>
+          	<ret-val type="byte[]"/>
+        </operation>
+		<operation name="findProtocollazione" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="numCertificatore" type="java.lang.String" />
+			<param name="progrCertificato" type="java.lang.String" />
+			<param name="annoCertificato" type="java.lang.String" />
+          </param-list>
+          	<ret-val type="it.csi.sicee.siceesrv.dto.siceesrv.Protocollazione"/>
+        </operation>
+		<operation name="getParametroMdp" type="synch-call" since="1.0.0">
+          <param-list>
+			<param name="param" type="java.lang.String" />
+          </param-list>
+          	<ret-val type="java.lang.String"/>
+        </operation>
+		<operation name="getParametriPagamentoMdp" type="synch-call" since="1.0.0">
+          <param-list>
+          </param-list>
+          	<ret-val type="it.csi.sicee.siceesrv.dto.siceesrv.LabelValue[]"/>
+        </operation>
+		<operation name="insertLogAccesso" type="synch-call" since="1.12">
+          <param-list>
+			<param name="codiceFiscale" type="java.lang.String" />
+			<param name="nome" type="java.lang.String" />
+			<param name="cognome" type="java.lang.String" />
+			<param name="ruolo" type="java.lang.String" />
+          </param-list>
+          	<ret-val type="void"/>
+        </operation>
+        <!-- operazione per monitoraggio -->
+      	<operation name="testResources" type="synch-call">
+          <param-list>
+          </param-list>
+          <ret-val type="boolean"/>
+        </operation>
+        <!-- operazioni per diagnostica -->
+      	<operation name="selfCheck" type="synch-call">
+          <param-list>
+          	<param name="alreadyCalled" type="it.csi.coopdiag.api.CalledResource[]"/>
+          </param-list>
+          <ret-val type="it.csi.coopdiag.api.InvocationNode"/>
+      	</operation>
+      	<operation name="hasSelfCheck" type="synch-call">
+          <param-list>
+          </param-list>
+          <ret-val type="boolean"/>
+      	</operation>
+      </operations>
+    </service>
+
+  </services>
+  <config>
+    <url-pa>**not used**</url-pa>
+    <pluggable-pd-list chooser-class="it.csi.csi.porte.FixedDelegateChooser">
+      <pluggable-pd
+        name="siceesrv.siceesrv.ejb"
+        class="it.csi.csi.porte.ejb20.PortaDelegataEJB"
+        url-pa="siceesrv.ejb.ApplSiceesrvPA"
+        url-qm="siceesrv.ejb.ApplSiceesrvQMGR">
+        <properties>
+          <property name="java.naming.provider.url" value="@sicee.siceesrv.siceesrv.pa.url@"/>
+        </properties>
+      </pluggable-pd>
+    </pluggable-pd-list>
+    <pre-function-handler-list>
+    	
+		</pre-function-handler-list>
+		<post-function-handler-list>
+		
+		</post-function-handler-list>
+    <queue-manager url=""/>
+  </config>
+</porta-delegata>

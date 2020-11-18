@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+ <globalConfiguration>
+  <parameter name="adminPassword" value="admin"/>
+  <parameter name="attachments.Directory" value="attachments"/>
+  <parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <parameter name="sendXsiTypes" value="true"/>
+  <parameter name="sendMultiRefs" value="true"/>
+  <parameter name="sendXMLDeclaration" value="true"/>
+  <parameter name="axis.sendMinimizedElements" value="true"/>
+  <requestFlow>
+   <handler type="java:org.apache.axis.handlers.JWSHandler">
+    <parameter name="scope" value="session"/>
+   </handler>
+   <handler type="java:org.apache.axis.handlers.JWSHandler">
+    <parameter name="scope" value="request"/>
+    <parameter name="extension" value=".jwr"/>
+   </handler>
+  </requestFlow>
+ </globalConfiguration>
+ <handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <service name="Version2" provider="java:RPC">
+  <parameter name="allowedMethods" value="getVersion"/>
+  <parameter name="className" value="org.apache.axis.Version"/>
+ </service>
+ <service name="AdminService" provider="java:MSG">
+  <parameter name="allowedMethods" value="AdminService"/>
+  <parameter name="enableRemoteAdmin" value="false"/>
+  <parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <namespace>http://xml.apache.org/axis/wsdd/</namespace>
+ </service>
+
+ <service name="siceesrvSiceesrv" provider="Handler"   >
+  <parameter name="wsdlPortType" value="siceesrvSiceesrv" />
+  <parameter name="allowedMethods" value="*"/>
+  <parameter name="defPDResource" value="/defpdelegata_embedded_siceesrv.xml"/>
+  <parameter name="className" value="it.csi.sicee.siceesrv.interfacecsi.siceesrv.SiceesrvSrv"/>
+  <parameter name="handlerClass" value="it.csi.csi.wrapper.jaxrpc.axis.PDProvider"/>
+  
+  <beanMapping languageSpecificType="java:it.csi.csi.wrapper.CSIException" qname="ns2:CSIException" xmlns:ns2="urn:siceesrvSiceesrv"/>
+  <beanMapping languageSpecificType="java:it.csi.csi.wrapper.UserException" qname="ns3:UserException" xmlns:ns3="urn:siceesrvSiceesrv"/>
+  <beanMapping languageSpecificType="java:it.csi.csi.wrapper.SystemException" qname="ns4:SystemException" xmlns:ns4="urn:siceesrvSiceesrv"/>
+  <beanMapping languageSpecificType="java:it.csi.csi.wrapper.UnrecoverableException" qname="ns5:UnrecoverableException" xmlns:ns5="urn:siceesrvSiceesrv"/>
+  <beanMapping languageSpecificType="java:it.csi.csi.wrapper.CommunicationException" qname="ns6:CommunicationException" xmlns:ns6="urn:siceesrvSiceesrv"/>
+  <!-- mapping dell'oggetto DatiMessaggio utilizzato nelle chiamate asincrone -->
+  <beanMapping languageSpecificType="java:it.csi.csi.util.DatiMessaggio" qname="ns7:DatiMessaggio" xmlns:ns7="urn:siceesrvSiceesrv"/>
+  <!-- mapping delle user defined entities -->
+  
+  <beanMapping languageSpecificType="java:it.csi.sicee.siceesrv.dto.siceesrv.FiltroRicercaAce" qname="ns10:FiltroRicercaAce" xmlns:ns10="urn:siceesrvSiceesrv"/>
+  
+  <beanMapping languageSpecificType="java:it.csi.sicee.siceesrv.dto.siceesrv.FiltroRicercaCertificatori" qname="ns10:FiltroRicercaCertificatori" xmlns:ns10="urn:siceesrvSiceesrv"/>
+  
+  <beanMapping languageSpecificType="java:it.csi.sicee.siceesrv.dto.siceesrv.Certificatore" qname="ns10:Certificatore" xmlns:ns10="urn:siceesrvSiceesrv"/>
+  
+  <beanMapping languageSpecificType="java:it.csi.sicee.siceesrv.dto.siceesrv.Ace" qname="ns10:Ace" xmlns:ns10="urn:siceesrvSiceesrv"/>
+  
+  <beanMapping languageSpecificType="java:it.csi.sicee.siceesrv.dto.siceesrv.Titolo" qname="ns10:Titolo" xmlns:ns10="urn:siceesrvSiceesrv"/>
+  
+  <beanMapping languageSpecificType="java:it.csi.sicee.siceesrv.dto.siceesrv.Notaio" qname="ns10:Notaio" xmlns:ns10="urn:siceesrvSiceesrv"/>
+  
+  <beanMapping languageSpecificType="java:it.csi.sicee.siceesrv.dto.siceesrv.InvioLog" qname="ns10:InvioLog" xmlns:ns10="urn:siceesrvSiceesrv"/>
+  
+  <beanMapping languageSpecificType="java:it.csi.sicee.siceesrv.dto.siceesrv.LabelValue" qname="ns10:LabelValue" xmlns:ns10="urn:siceesrvSiceesrv"/>
+  
+  <beanMapping languageSpecificType="java:it.csi.sicee.siceesrv.dto.siceesrv.Protocollazione" qname="ns10:Protocollazione" xmlns:ns10="urn:siceesrvSiceesrv"/>
+  
+  <!-- mapping delle user defined exceptions -->
+  
+  <beanMapping languageSpecificType="java:it.csi.sicee.siceesrv.exception.siceesrv.SiceesrvException" qname="ns10:SiceesrvException" xmlns:ns10="urn:siceesrvSiceesrv"/>
+  
+  <namespace>siceesrv</namespace>
+  
+ </service>
+
+ <service name="Version" provider="java:RPC">
+  <parameter name="allowedMethods" value="getVersion"/>
+  <parameter name="className" value="org.apache.axis.Version"/>
+ </service>
+ <transport name="http">
+  <requestFlow>
+   <handler type="URLMapper"/>
+   <handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </requestFlow>
+ </transport>
+ <transport name="local">
+  <responseFlow>
+   <handler type="LocalResponder"/>
+  </responseFlow>
+ </transport>
+</deployment>

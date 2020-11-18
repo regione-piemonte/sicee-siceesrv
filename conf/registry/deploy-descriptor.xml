@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy-descriptor 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="../../conf/deploy-descriptor.xsd">
+	<rilascio
+		ambiente="@rilascio.ambiente@"
+		cliente="@rilascio.cliente@"
+		istanza="@rilascio.istanza@"
+		unita-installazione="siceesrv"
+		staging="false">
+		<prodotto codice="SICEE" versione="10.0.0">
+			<descrizione>@prodotto.descrizione@</descrizione>
+		</prodotto>
+		<componente codice="SICEESRV">
+			<descrizione>@componente.descrizione@</descrizione>
+		</componente>
+	</rilascio>
+	<lista-servizi>
+		<servizio nome="siceesrv" versione-intf="1.12.0" versione-impl="1.12.0" tipo-servizio="A" tipo-erogazione="O">
+			<versione-retrocompatibile>true</versione-retrocompatibile>
+		</servizio>
+	</lista-servizi>
+	<lista-binding>
+	    <binding servizio="siceesrv" versione="1.12.0" protocollo="CSI-java-jnp">
+			<endpoint>
+				<csi-endpoint pd-file="defpd_siceesrv_CSI_java_jnp.xml">
+					<override-url>@sicee.siceesrv.siceesrv.pa.url@</override-url>
+				</csi-endpoint>
+			</endpoint>
+		</binding>
+	    <binding servizio="siceesrv" versione="1.12.0" protocollo="WS-SOAP">
+			<endpoint>
+				<ws-endpoint wsdl="@sicee.siceesrv.siceesrv.wsfad.server.prefix@/siceesrvApplSiceesrvWsfad/services/siceesrvSiceesrv?wsdl">
+					<url>@sicee.siceesrv.siceesrv.wsfad.server.prefix@/siceesrvApplSiceesrvWsfad/services/siceesrvSiceesrv</url>
+				</ws-endpoint>
+			</endpoint>
+		</binding>
+	</lista-binding>
+</deploy-descriptor>
